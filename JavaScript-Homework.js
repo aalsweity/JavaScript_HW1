@@ -8,15 +8,18 @@ let dog_names = ["Max","HAS","PuRple","dog"]
 
 function findWords(dog_string, dog_names) {
     //Your code goes here
-    new_dog_string = dog_string.split(" ").join(",").split(",").join(" ").split("  ").join(" ").split(" ")
-    for(x in dog_names) {
-        if(x in new_dog_string) {
-            console.log("Matched " + dog_names[x])
+    new_dog_string = dog_string.split(" ").join(",").split(",").join(" ").split("  ").join(" ").split(" ").map(x => x.toLowerCase())
+    for(x of dog_names.map(y => y.toLowerCase())) {
+        for (y of new_dog_string) {
+        if(x == y) {
+            console.log("Matched " + x)
+            break
         }
         else {
-            console.log("No Matches")
+            console.log("No Matches on word " + x + " ,CURRENT WORD: " + y)
         }
     }
+  }
 }
 
 //Call method here with parameters
